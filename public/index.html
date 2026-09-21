@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Researcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">YOUTUBE RESEARCHER</p>
+        <form id="search-form" class="search-box">
+          <label class="sr-only" for="query">検索キーワード</label>
+          <input id="query" name="q" type="search" placeholder="例：料理、Vlog、プログラミング" autocomplete="off" required />
+          <button type="submit">検索する <span>→</span></button>
+        </form>
+      </section>
+      <section id="results" class="results" aria-live="polite">
+        <div class="empty-state">
+          <div class="empty-icon">⌕</div>
+          <p>キーワードを入力して検索を始めてください</p>
+        </div>
+      </section>
+    </main>
+    <template id="card-template">
+      <article class="video-card">
+        <a class="thumb-link" target="_blank" rel="noopener noreferrer"><img class="thumbnail" alt="" /></a>
+        <div class="card-body">
+          <div class="meta"><span class="date"></span><span class="dot">•</span><span class="subscriber-count"></span></div>
+          <a class="video-title" target="_blank" rel="noopener noreferrer"></a>
+          <a class="channel" target="_blank" rel="noopener noreferrer"><img class="channel-image" alt="" /><span class="channel-name"></span></a>
+        </div>
+      </article>
+    </template>
+    <script src="/app.js"></script>
+  </body>
+</html>

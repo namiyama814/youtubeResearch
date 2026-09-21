@@ -1,2 +1,26 @@
-# youtubeResearch
-YouTube Researcher
+# YouTube Researcher
+
+チャンネル登録者数が **500〜10,000人** で、**直近30日以内** に公開された日本向け・日本語の YouTube 動画をキーワードで探す小さな検索ツールです。
+
+初回の検索では最大50件を表示します。該当する動画が残っている場合は「さらに表示」を押すことで、次の50件を YouTube API から追加で取得します。
+
+## 使い方
+
+1. Google Cloud Console で YouTube Data API v3 を有効にし、API キーを作成します。
+2. プロジェクト直下に `.env` を作成して、API キーを設定します。
+
+```env
+YOUTUBE_API_KEY="取得したAPIキー"
+```
+
+3. 起動します。
+
+```bash
+npm start
+```
+
+ブラウザで `http://localhost:3000` を開いてください。
+
+`.env` は `.gitignore` に含めているため、API キーが Git に追加されることはありません。API キーはサーバー側だけで使用し、ブラウザには渡しません。登録者数を非公開にしているチャンネルは、条件を確認できないため結果から除外します。
+
+検索には YouTube API の `regionCode=JP` と `relevanceLanguage=ja` を指定しています。これは日本向け・日本語の動画に検索結果を寄せる条件であり、投稿者の国籍や居住地を保証するものではありません。
