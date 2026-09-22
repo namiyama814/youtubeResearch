@@ -5,7 +5,8 @@
   "description": "Find recently published YouTube videos from growing channels.",
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "pages:dev": "wrangler pages dev public"
   },
   "engines": {
     "node": ">=18"

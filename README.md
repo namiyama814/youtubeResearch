@@ -24,3 +24,11 @@ npm start
 `.env` は `.gitignore` に含めているため、API キーが Git に追加されることはありません。API キーはサーバー側だけで使用し、ブラウザには渡しません。登録者数を非公開にしているチャンネルは、条件を確認できないため結果から除外します。
 
 検索には YouTube API の `regionCode=JP` と `relevanceLanguage=ja` を指定しています。これは日本向け・日本語の動画に検索結果を寄せる条件であり、投稿者の国籍や居住地を保証するものではありません。
+
+## Cloudflare Pages
+
+Cloudflare Pages Functions では `/functions/api/search.js` が検索APIを提供し、`/functions/_middleware.js` がサイト全体をBasic認証で保護します。Cloudflareには次の3つを**シークレット**として設定します。
+
+- `YOUTUBE_API_KEY`
+- `BASIC_AUTH_USER`
+- `BASIC_AUTH_PASSWORD`
